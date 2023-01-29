@@ -1,0 +1,9 @@
+{
+    "editor.bracketPairColorization.enabled": true,
+	"editor.fontSize": 12,
+	"editor.minimap.enabled": false,
+    "files.eol": "\n",
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": [".github/workflows/*.{yml,yaml}"]
+    }
+}
