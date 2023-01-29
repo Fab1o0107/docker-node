@@ -1,9 +1,5 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": ["github>Fab1o0107/renovate-config"],
-    "baseBranches": ["main"],
-    "docker": {
-        "enabled": true,
-        "rangeStrategy": "bump"
-    }
+    "baseBranches": ["main"]
 }
