@@ -1,7 +1,7 @@
 # Docker Node
 A repository that contains Docker (OCI format) base images for Node.js (that I used in my projects)
 
-Available on [Docker Hub](https://hub.docker.com/r/fab1o0107/node) and [GitHub Container Registry](/pkgs/container/node)!
+Available on [Docker Hub](https://hub.docker.com/r/fabio0107/node) and [GitHub Container Registry](/pkgs/container/node)!
 
 
 ### Information for dev version
