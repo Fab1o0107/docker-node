@@ -7,7 +7,7 @@ import meow from "meow";
 
 const cli = meow(`
     Usage
-      $ npm exec -sy ./extractImage.js [options] <Dockerfile path> [key]
+      $ node ./extractImage.mjs [options] <Dockerfile path> [key]
 
     Options
       --apply-variant, -a    Toggle whether to apply variant to tags or not. Type: boolean. Default: true
@@ -71,7 +71,7 @@ if (path) {
 
         console.info(value);
     } else {
-        console.info(JSON.stringify(recipe));
+        console.info(JSON.stringify(recipe, null, 4));
     }
 } else {
     cli.showHelp(1);
