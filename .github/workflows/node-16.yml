@@ -1,0 +1,27 @@
+name: Build & Push Node.js 16 to OCI Image Registry
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "16/**/Dockerfile"
+      - extractImage.mjs
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "16/**/Dockerfile"
+      - extractImage.mjs
+
+jobs:
+  workdirs:
+    uses: ./.github/workflows/specify-workdir.yml
+    with:
+      base-dir: 16
+
+  image:
+    uses: ./.github/workflows/build.yml
+    needs: workdirs
+    with:
+      workdirs: ${{ needs.workdirs.outputs.workdirs-array }}
