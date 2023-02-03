@@ -1,3 +1,6 @@
+# TAGS: current
+# VARIANT: dev
+# PLATFORMS: linux/amd64, linux/arm64/v8, linux/arm/v7, linux/ppc64le, linux/s390x
 FROM node:19.5.0-bullseye-slim
 
 # Set workdir

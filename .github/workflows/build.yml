@@ -6,6 +6,13 @@ on:
       workdirs:
         required: true
         type: string
+    secrets:
+      docker-token:
+        required: true
+      github-username:
+        required: true
+      github-token:
+        required: true
 
 permissions:
   contents: read
@@ -36,7 +43,6 @@ jobs:
         with:
           node-version: 18
           check-latest: true
-          cache: npm
 
       - name: Install meow dependencies for extracting recipe from Dockerfile
         run: npm i --no-save meow
@@ -59,7 +65,7 @@ jobs:
         id: meta
         with:
           images: |
-            docker.io/fab1o0107/node
+            docker.io/fabio0107/node
             ghcr.io/fab1o0107/node
           tags: |
             ${{ steps.recipe.outputs.tags }}
@@ -68,17 +74,16 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # tag=v2.1.0
         with:
-          registry: docker.io
-          username: fab1o0107
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: fabio0107
+          password: ${{ secrets.docker-token }}
 
       - name: Login to GitHub Container Registry
         if: ${{ github.event_name != 'pull_request' }}
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # tag=v2.1.0
         with:
           registry: ghcr.io
-          username: ${{ secrets.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.github-username }}
+          password: ${{ secrets.github-token }}
 
       - name: Build and push the Docker image from the specified Dockerfile
         id: docker_build

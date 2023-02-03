@@ -36,7 +36,6 @@ jobs:
         with:
           node-version: 18
           check-latest: true
-          cache: npm
 
       - name: Generate a list of changed Dockerfiles
         id: workdirs
