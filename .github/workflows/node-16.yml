@@ -6,13 +6,11 @@ on:
       - main
     paths:
       - "16/**/Dockerfile"
-      - extractImage.mjs
   pull_request:
     branches:
       - main
     paths:
       - "16/**/Dockerfile"
-      - extractImage.mjs
 
 jobs:
   workdirs:
