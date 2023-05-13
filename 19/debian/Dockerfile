@@ -1,7 +1,7 @@
 # TAGS: current
 # VARIANT:
 # PLATFORMS: linux/amd64, linux/arm64/v8, linux/arm/v7, linux/ppc64le, linux/s390x
-FROM node:19.8.1-bullseye-slim
+FROM node:19.9.0-bullseye-slim
 
 # Set workdir
 WORKDIR /app

@@ -1,7 +1,7 @@
 # TAGS: current
 # VARIANT: dev-alpine
 # PLATFORMS: linux/amd64, linux/arm64/v8, linux/arm/v7, linux/arm/v6, linux/ppc64le, linux/s390x
-FROM node:19.8.1-alpine
+FROM node:19.9.0-alpine
 
 # Set workdir
 WORKDIR /tmp/build
