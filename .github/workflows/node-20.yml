@@ -23,7 +23,4 @@ jobs:
     needs: workdirs
     with:
       workdirs: ${{ needs.workdirs.outputs.workdirs-array }}
-    secrets:
-      docker-token: ${{ secrets.DOCKER_TOKEN }}
-      github-username: ${{ github.repository_owner }}
-      github-token: ${{ secrets.GITHUB_TOKEN }}
+    secrets: inherit

@@ -6,13 +6,6 @@ on:
       workdirs:
         required: true
         type: string
-    secrets:
-      docker-token:
-        required: true
-      github-username:
-        required: true
-      github-token:
-        required: true
 
 permissions:
   contents: read
@@ -75,15 +68,15 @@ jobs:
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
         with:
           username: fabio0107
-          password: ${{ secrets.docker-token }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Login to GitHub Container Registry
         if: ${{ github.event_name != 'pull_request' }}
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
         with:
           registry: ghcr.io
-          username: ${{ secrets.github-username }}
-          password: ${{ secrets.github-token }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push the Docker image from the specified Dockerfile
         id: docker_build
